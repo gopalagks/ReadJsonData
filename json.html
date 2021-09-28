@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Table</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="overlay"></div>
+
+        <h2 class="text-center mt-4 mb-4">Data View</h2>
+
+        <div class="row h-100 d-flex justify-content-center" id="select_file">
+
+            <div class="card text-white bg-secondary mb-3" id="json_card">
+
+                <div class="card-header">
+                    <button class="btn  btn-lg btn-light float-middle btn-inline-block" style="width:100%">JSON</button>
+                </div>
+
+                <div class="card-body" id="json_file" style="display: inline-block;">
+
+                    <div class="card-title text-center">
+                        <h5>Select JSON File</h5>
+                    </div>
+
+                    <form id="upload-form" method="POST" enctype="multipart/form-data">
+                        <div class="custom-file" id="select_pdf_file">
+                            <input type="file" name="file" accept="application/json" class="custom-file-input"
+                                id="upload" onchange="loadJsonFiles(event)">
+
+                            <label class="custom-file-label" for="upload"><i class="ion-android-cloud-outline"></i>
+                                <span id="uploadLabel">Choose
+                                    file</span></label>
+                        </div>
+                        <input class="btn btn-primary mt-4 " type="submit" value="Detect" onchange="this.form.submit()">
+                    </form>
+                </div>
+
+            </div>
+            <div id="json_data" class="mt-4 col-md-12"></div>
+            <div id="json_data_editable" class="mt-4 col-md-12" style="display: none;"></div>
+
+        </div>
+        <div class="row justify-content-between">
+            <div id="json_data" class="mt-4 col-md-12"></div>
+            <div id="json_data_editable" class="mt-4 col-md-12" style="display: none;"></div>
+
+            <div class="col-md-12 text-center" id="editable" style="display: none;">
+                <button type="button" class="btn btn-primary btn-lg" onclick="editClicked()">EDIT</button>
+            </div>
+
+            <div class="col-md-12 text-center" id="save" style="display: none;">
+                <button type="button" class="btn btn-success btn-lg" onclick="saveClicked()">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> -->
+    <script type="text/javascript" src="site.js"></script>
+
+</body>
+
+</html>
